@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templetes</title>
+    <style>
+        /* Global styles */
+       
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c9c8c6;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background-color: darkred;
+    padding: 0px 20px;
+    box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    transition: background-color 0.3s ease;
+}
+nav a.active {
+    background-color: red;
+}
+nav a:hover {
+    background-color: red;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.homepage-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-image img {
+    width: 400px;
+    border-radius: 50%;
+	box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+}
+.bio {
+    color: white;
+    max-width: 600px;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight:bold;
+    font-size: 20px;
+}
+form {
+    margin: 0 auto;
+    padding: 60px;
+    background-color: white;
+     box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    border-radius: 10px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+form input, form textarea, form button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: red;
+}
+.center {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+/* Responsive Design */
+
+/* Phone */
+@media only screen and (max-width: 320px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .homepage-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-image img {
+        width: 200px;
+    }
+}
+
+/* Mobile */
+@media only screen and (min-width: 480px) {
+    .homepage-content {
+        justify-content: space-between;
+    }
+    .left-image img {
+        width: 300px;
+        box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+    .homepage-content {
+        flex-direction: column;
+    }
+    .left-image img {
+        width: 300px;
+        box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .homepage-content {
+        flex-direction: row;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 769px) {
+    .container {
+        max-width: 1000px;
+    }
+    nav ul li {
+        margin-left: 30px;
+        box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    }
+}
+
+/* Large Desktop */
+@media only screen and (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+    }
+    .left-image img {
+        width: 480px;
+        box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    }
+}
+
+/* Huge Screens */
+@media only screen and (min-width: 1280px) {
+    .container {
+        max-width: 1400px;
+    }
+    nav ul li {
+        margin-left: 40px;
+    }
+    .left-image img {
+        width: 450px;
+        padding-left:100px;
+        box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="logo">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Personnel" style="width: 65px; border-radius: 50%; box-shadow: 8px 8px 8px rgb(0 0 0 / 80%);">
+    </div>
+    <ul>
+        <li><a href="#" id="homeLink">HOME</a></li>
+        <li><a href="#" id="contactLink">Contact Us</a></li>
+        <li><a href="#" id="loginLink">Log In</a></li>
+    </ul>
+</nav>
+
+<!-- Home Page -->
+<div class="container" id="homePage">
+    <div class="homepage-content">
+        <div class="left-image">
+            <img src="{{ url_for('static', filename='images/10111015.jpeg') }}" alt="Personnel">
+        </div>
+        <div class="bio">
+            <h2>Personnel BIO</h2>
+            <p>This is where the personnel bio goes. You can add a description of the individual here.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Us Page -->
+<div class="container center" id="contactPage" style="display: none;">
+    <h2>Contact Us</h2>
+    <form action="/submit" method="POST">
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+</div>
+
+<!-- Log In Page -->
+<div class="container center" id="loginPage" style="display: none;">
+    <h2>Log In</h2>
+    <form action="/login" method="POST">
+        <input type="hidden" name="form_type" value="login">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+    <p><a href="#" id="forgotPasswordLink">Forgot password?</a></p>
+    <p>New? <a href="#" id="getStartedLink">Get started</a></p>
+</div>
+
+<!-- Sign Up Page -->
+<div class="container center" id="signUpPage" style="display: none;">
+    <h2>Create Account</h2>
+    <form action="/signup" method="POST">
+        <input type="hidden" name="form_type" value="signup">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex: 1; margin-right: 10px;">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div style="flex: 1; margin-left: 10px;">
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm New Password" required>
+            </div>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="#" id="alreadyHaveAccountLink">Log In</a></p>
+</div>
+
+<!-- Forgot Password Page -->
+<div class="container center" id="forgotPasswordPage" style="display: none;">
+    <h2>Forgot Password</h2>
+    <form action="/submit" method="POST">
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="email" placeholder="Email">
+    <button type="submit">Submit</button>
+</form>
+
+
+    <p>Remember your password? <a href="#" id="loginLinkFromForgot">Log In</a></p>
+</div>
+
+<!-- JavaScript for Page Navigation -->
+<script>
+
+
+ 
+
+
+
+    // Get all page sections
+    const homePage = document.getElementById('homePage');
+    const contactPage = document.getElementById('contactPage');
+    const loginPage = document.getElementById('loginPage');
+    const signUpPage = document.getElementById('signUpPage');
+    const forgotPasswordPage = document.getElementById('forgotPasswordPage');
+
+    // Links in navigation bar
+    const homeLink = document.getElementById('homeLink');
+    const contactLink = document.getElementById('contactLink');
+    const loginLink = document.getElementById('loginLink');
+    const getStartedLink = document.getElementById('getStartedLink');
+    const alreadyHaveAccountLink = document.getElementById('alreadyHaveAccountLink');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+    const loginLinkFromForgot = document.getElementById('loginLinkFromForgot');
+
+    // Functions to show/hide pages
+    function showPage(page) {
+        homePage.style.display = 'none';
+        contactPage.style.display = 'none';
+        loginPage.style.display = 'none';
+        signUpPage.style.display = 'none';
+        forgotPasswordPage.style.display = 'none';
+        page.style.display = 'block';
+    }
+
+    // Event listeners for page navigation
+    homeLink.addEventListener('click', function() {
+        showPage(homePage);
+        homeLink.classList.add('active');
+        contactLink.classList.remove('active');
+        loginLink.classList.remove('active');
+    });
+
+    contactLink.addEventListener('click', function() {
+        showPage(contactPage);
+        contactLink.classList.add('active');
+        homeLink.classList.remove('active');
+        loginLink.classList.remove('active');
+    });
+
+    loginLink.addEventListener('click', function() {
+        showPage(loginPage);
+        loginLink.classList.add('active');
+        homeLink.classList.remove('active');
+        contactLink.classList.remove('active');
+    });
+
+    getStartedLink.addEventListener('click', function() {
+        showPage(signUpPage);
+    });
+
+    alreadyHaveAccountLink.addEventListener('click', function() {
+        showPage(loginPage);
+    });
+
+    forgotPasswordLink.addEventListener('click', function() {
+        showPage(forgotPasswordPage);
+    });
+
+    loginLinkFromForgot.addEventListener('click', function() {
+        showPage(loginPage);
+    });
+</script>
+
+</body>
+</html>
